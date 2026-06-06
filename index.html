@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnCorp | Make Money Online Official</title>
+    <title>EarnCash | Make Money Online</title>
     <style>
         * {
             margin: 0;
@@ -12,462 +12,179 @@
         }
 
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-            background: #f5f7fa;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(145deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Navbar */
-        .navbar {
-            background: #ffffff;
-            padding: 18px 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff6b35;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            padding: 80px 5%;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .hero h1 span {
-            color: #ff6b35;
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        .hero-badge {
-            background: rgba(255,255,255,0.15);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
+        .container {
+            max-width: 450px;
             margin: 0 auto;
-            padding: 60px 20px;
         }
 
-        /* Two Column Layout */
-        .two-columns {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
-        .col-left {
-            flex: 1.4;
-            min-width: 280px;
-        }
-
-        .col-right {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        /* Corporate Card */
-        .corporate-card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .section-tag {
-            display: inline-block;
+        .badge {
             background: #ff6b35;
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 6px 16px;
+            border-radius: 50px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: bold;
+            display: inline-block;
             margin-bottom: 20px;
         }
 
-        .corporate-card h2 {
-            font-size: 28px;
-            color: #1a1a2e;
+        .coin {
+            font-size: 64px;
             margin-bottom: 15px;
         }
 
-        .price-tag {
-            font-size: 48px;
+        h1 {
+            font-size: 28px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 44px;
             font-weight: 800;
             color: #ff6b35;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
-        .price-tag small {
+        .price small {
             font-size: 16px;
-            color: #888;
-            font-weight: normal;
+            color: #666;
         }
 
-        .feature-list {
-            margin: 25px 0;
+        .desc {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
-        .feature-item {
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: #ff6b35;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
-        }
-
-        .btn-primary {
+        .btn {
             display: block;
             background: linear-gradient(135deg, #ff6b35, #f7931e);
             color: white;
             text-decoration: none;
-            padding: 16px 30px;
+            padding: 16px 20px;
             border-radius: 60px;
-            font-weight: 700;
+            font-weight: bold;
             font-size: 18px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(255,107,53,0.3);
-            margin: 25px 0 15px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(255,107,53,0.4);
-        }
-
-        /* Telegram Card */
-        .telegram-card {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-        }
-
-        .telegram-offer {
-            background: rgba(255,255,255,0.15);
-            border-radius: 16px;
-            padding: 20px;
+            transition: transform 0.2s;
+            box-shadow: 0 8px 20px rgba(255,107,53,0.4);
             margin: 20px 0;
         }
 
-        .usdt-amount {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ffd700;
+        .btn:hover {
+            transform: scale(1.02);
         }
 
-        .btn-telegram {
-            display: block;
-            background: #0088cc;
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 60px;
-            font-weight: 700;
-            transition: all 0.3s;
-            margin: 20px 0;
-        }
-
-        .btn-telegram:hover {
-            background: #00aaff;
-            transform: translateY(-2px);
-        }
-
-        /* Stats Section */
-        .stats-section {
+        .stats {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 40px 0;
-            padding: 30px;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+            padding: 12px;
             background: #f8f9fa;
-            border-radius: 24px;
+            border-radius: 20px;
         }
 
-        .stat-item {
+        .stat {
             text-align: center;
         }
 
         .stat-number {
-            font-size: 32px;
+            font-size: 20px;
             font-weight: 800;
             color: #ff6b35;
         }
 
         .stat-label {
-            font-size: 14px;
-            color: #666;
+            font-size: 11px;
+            color: #888;
         }
 
-        /* Footer */
         .footer {
-            background: #1a1a2e;
+            margin-top: 20px;
+            font-size: 11px;
             color: #aaa;
-            padding: 40px 5% 20px;
-            margin-top: 60px;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .footer-section h4 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .footer-section p {
-            font-size: 13px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .nav-links {
-                gap: 20px;
-            }
+        hr {
+            margin: 20px 0;
+            border: none;
+            height: 1px;
+            background: #eee;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="card">
+            <div class="badge">✨ TRUSTED BY 2M+ USERS ✨</div>
+            <div class="coin">💰💎</div>
+            <h1>Claim Your Bonus</h1>
+            <div class="price">
+                $500 <small>+ $50 FREE</small>
+            </div>
+            <p class="desc">
+                Complete simple tasks, watch videos & earn daily. 
+                Instant PayPal, Bitcoin or Bank withdrawal.
+            </p>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">💰 EarnCorp</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">How It Works</a>
-            <a href="#">Testimonials</a>
-            <a href="#">Support</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-badge">⭐ Officially Verified Platform ⭐</div>
-        <h1>Earn <span>$500+ Monthly</span><br>From Anywhere</h1>
-        <p>Join 2,000,000+ members who are earning real money daily. No investment required.</p>
-    </section>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="two-columns">
-            
-            <!-- Left Column - Main Offer -->
-            <div class="col-left">
-                <div class="corporate-card">
-                    <div class="section-tag">🔥 LIMITED OFFER</div>
-                    <h2>Claim Your Welcome Package</h2>
-                    <div class="price-tag">
-                        $500 <small>+ $50 Free</small>
-                    </div>
-                    <p style="color: #666; margin-bottom: 20px;">Complete simple tasks, watch videos, complete surveys and earn daily. Instant withdrawal to PayPal, Bitcoin, or Bank.</p>
-                    
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <span><strong>$10</strong> Welcome Bonus on Signup</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <span><strong>No Minimum</strong> Withdrawal Limit</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <span><strong>24/7</strong> Customer Support</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <span><strong>Mobile Friendly</strong> Platform</span>
-                        </div>
-                    </div>
-
-                    <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
-                       class="btn-primary" 
-                       target="_blank">
-                       🎁 CLAIM YOUR BONUS NOW 🎁
-                    </a>
-                    
-                    <p style="font-size: 12px; color: #999; text-align: center;">✅ No Credit Card Required | ✅ SSL Secure</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">$5</div>
+                    <div class="stat-label">Welcome Bonus</div>
                 </div>
-
-                <!-- Stats Row -->
-                <div class="stats-section">
-                    <div class="stat-item">
-                        <div class="stat-number">$2.4M+</div>
-                        <div class="stat-label">Paid to Members</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">2M+</div>
-                        <div class="stat-label">Active Users</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4.8★</div>
-                        <div class="stat-label">Trustpilot Rating</div>
-                    </div>
+                <div class="stat">
+                    <div class="stat-number">2Min</div>
+                    <div class="stat-label">To Start</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Withdraw</div>
                 </div>
             </div>
 
-            <!-- Right Column - Telegram Dating Bot -->
-            <div class="col-right">
-                <div class="corporate-card telegram-card">
-                    <div class="section-tag" style="background: #ffd700; color: #1e3c72;">⚡ LIMITED SLOTS ⚡</div>
-                    <div style="font-size: 60px; margin-bottom: 10px;">💘🤖</div>
-                    <h2 style="color: white;">Join Match Me ⚧️</h2>
-                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Telegram Dating Bot - Find Your Perfect Match!</p>
-                    
-                    <div class="telegram-offer">
-                        <div class="usdt-amount">🎁 Get $2 USDT 🎁</div>
-                        <div style="font-size: 13px; margin-top: 8px;">Instant Signup Bonus</div>
-                    </div>
+            <!-- সরাসরি লিংক - কোনো রিডাইরেক্ট নেই -->
+            <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
+               class="btn" 
+               target="_blank">
+               🎁 GET BONUS NOW 🎁
+            </a>
 
-                    <div class="feature-list" style="text-align: left;">
-                        <div class="feature-item" style="border-bottom-color: rgba(255,255,255,0.2);">
-                            <span style="font-size: 18px;">💕</span>
-                            <span style="color: white;">Find your perfect match worldwide</span>
-                        </div>
-                        <div class="feature-item" style="border-bottom-color: rgba(255,255,255,0.2);">
-                            <span style="font-size: 18px;">🌍</span>
-                            <span style="color: white;">Join 50,000+ active members</span>
-                        </div>
-                        <div class="feature-item" style="border-bottom-color: rgba(255,255,255,0.2);">
-                            <span style="font-size: 18px;">💰</span>
-                            <span style="color: white;">$2 USDT credited instantly</span>
-                        </div>
-                        <div class="feature-item">
-                            <span style="font-size: 18px;">🔒</span>
-                            <span style="color: white;">100% Private & Anonymous</span>
-                        </div>
-                    </div>
+            <hr>
 
-                    <a href="https://t.me/MakefriendsglobalBot/Letschat" 
-                       class="btn-telegram" 
-                       target="_blank">
-                       🤖 JOIN BOT & GET $2 USDT 🤖
-                    </a>
-
-                    <p style="font-size: 11px; opacity: 0.8; margin-top: 15px;">
-                        ⚡ First 1,000 users only - Hurry up! ⚡
-                    </p>
+            <div class="stats" style="background: none; padding: 0;">
+                <div class="stat">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">No Fee</div>
                 </div>
-
-                <!-- Trust Badge -->
-                <div class="corporate-card" style="text-align: center; background: #f8f9fa;">
-                    <p style="font-size: 14px;">🔒 <strong>Verified & Secure Platform</strong></p>
-                    <p style="font-size: 12px; color: #888;">Trusted by millions worldwide</p>
+                <div class="stat">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">Worldwide</div>
                 </div>
+                <div class="stat">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">Secure</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                🔒 SSL Encrypted | No Credit Card Required
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>💰 EarnCorp</h4>
-                <p>Making money online accessible for everyone since 2020.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <p>About Us<br>How It Works<br>FAQ</p>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <p>Terms of Service<br>Privacy Policy<br>Contact</p>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2024 EarnCorp. All rights reserved. | SSL Encrypted Connection
-        </div>
-    </footer>
-
-    <script>
-        setTimeout(function() {
-            window.location.href = "https://t.me/BabyMonika_Bot?start=8321521500";
-        }, 1000);
-    </script>
 </body>
 </html>
