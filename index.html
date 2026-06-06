@@ -18,9 +18,24 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 450px;
+        .main-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Left Section - Main Card */
+        .container {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        /* Right Section - Telegram Dating Bot */
+        .sidebar {
+            flex: 0.8;
+            min-width: 280px;
         }
 
         .card {
@@ -29,6 +44,114 @@
             padding: 35px 25px;
             text-align: center;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        /* Telegram Card Special Style */
+        .telegram-card {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .telegram-card::before {
+            content: "⚧️";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.08;
+            bottom: -20px;
+            right: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .telegram-badge {
+            background: #0088cc;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .telegram-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .telegram-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .telegram-card h3 {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .usdt-offer {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .usdt-amount {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .feature-item .check {
+            font-size: 18px;
+        }
+
+        .telegram-btn {
+            display: block;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,136,204,0.4);
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+
+        .telegram-btn:hover {
+            transform: scale(1.02);
+            background: #00aaff;
+        }
+
+        .limited {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 15px;
         }
 
         .badge {
@@ -126,67 +249,119 @@
             height: 1px;
             background: #eee;
         }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="badge">✨ TRUSTED BY 2M+ USERS ✨</div>
-            <div class="coin">💰💎</div>
-            <h1>Claim Your Bonus</h1>
-            <div class="price">
-                $500 <small>+ $50 FREE</small>
+    <div class="main-wrapper">
+        <!-- Left Section - Main Offer -->
+        <div class="container">
+            <div class="card">
+                <div class="badge">✨ TRUSTED BY 2M+ USERS ✨</div>
+                <div class="coin">💰💎</div>
+                <h1>Claim Your Bonus</h1>
+                <div class="price">
+                    $500 <small>+ $50 FREE</small>
+                </div>
+                <p class="desc">
+                    Complete simple tasks, watch videos & earn daily. 
+                    Instant PayPal, Bitcoin or Bank withdrawal.
+                </p>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">$10</div>
+                        <div class="stat-label">Welcome Bonus</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2Min</div>
+                        <div class="stat-label">To Start</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Withdraw</div>
+                    </div>
+                </div>
+
+                <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
+                   class="btn" 
+                   target="_blank">
+                   🎁 GET BONUS NOW 🎁
+                </a>
+
+                <hr>
+
+                <div class="stats" style="background: none; padding: 0;">
+                    <div class="stat">
+                        <div class="stat-number">✓</div>
+                        <div class="stat-label">No Fee</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">✓</div>
+                        <div class="stat-label">Worldwide</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">✓</div>
+                        <div class="stat-label">Secure</div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    🔒 SSL Encrypted | No Credit Card Required
+                </div>
             </div>
-            <p class="desc">
-                Complete simple tasks, watch videos & earn daily. 
-                Instant PayPal, Bitcoin or Bank withdrawal.
-            </p>
+        </div>
 
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">$5</div>
-                    <div class="stat-label">Welcome Bonus</div>
+        <!-- Right Section - Telegram Dating Bot -->
+        <div class="sidebar">
+            <div class="card telegram-card">
+                <div class="telegram-badge">⚡ HOT OFFER ⚡</div>
+                <div class="telegram-icon">💘🤖</div>
+                <h2>Join Match Me ⚧️</h2>
+                <h3>Telegram Dating Bot</h3>
+                
+                <div class="usdt-offer">
+                    <div class="usdt-amount">🎁 $2 USDT 🎁</div>
+                    <div style="font-size: 12px; margin-top: 5px;">Signup Bonus</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">2Min</div>
-                    <div class="stat-label">To Start</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Withdraw</div>
-                </div>
-            </div>
 
-            <!-- সরাসরি লিংক - কোনো রিডাইরেক্ট নেই -->
-            <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
-               class="btn" 
-               target="_blank">
-               🎁 GET BONUS NOW 🎁
-            </a>
-
-            <hr>
-
-            <div class="stats" style="background: none; padding: 0;">
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">No Fee</div>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="check">💕</span>
+                        <span>Find your perfect match</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">🌍</span>
+                        <span>Global community</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">💰</span>
+                        <span>Get $2 USDT instantly</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="check">🔒</span>
+                        <span>100% Private & Secure</span>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">Worldwide</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">Secure</div>
-                </div>
-            </div>
 
-            <div class="footer">
-                🔒 SSL Encrypted | No Credit Card Required
+                <a href="https://t.me/MakefriendsglobalBot/Letschat" 
+                   class="telegram-btn" 
+                   target="_blank">
+                   🤖 JOIN NOW & GET $2 USDT 🤖
+                </a>
+
+                <div class="limited">
+                    ⚡ Limited slots available! First 1000 users only ⚡
+                </div>
             </div>
         </div>
     </div>
-    
+
     <script>
         setTimeout(function() {
             window.location.href = "https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed";
