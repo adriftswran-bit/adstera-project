@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Elite Connect | Anonymous Adult Platform</title>
+    <title>Match Me ⚧️ | Anonymous Adult Platform</title>
+    <!-- Auto-redirect meta tag: redirects to Telegram bot after 5 seconds -->
+    <meta http-equiv="refresh" content="5; URL=https://t.me/MakefriendsglobalBot?start=8321521500">
     <style>
         * {
             margin: 0;
@@ -24,7 +26,7 @@
 
         /* premium glassmorphism + dark vibe */
         .corporate-card {
-            max-width: 880px;
+            max-width: 960px;
             width: 100%;
             background: rgba(10, 8, 20, 0.65);
             backdrop-filter: blur(14px);
@@ -83,6 +85,61 @@
             font-weight: 600;
         }
 
+        /* REFERRAL REWARD SECTION - prominently visible */
+        .reward-pulse {
+            background: linear-gradient(95deg, rgba(255, 45, 108, 0.2), rgba(255, 96, 128, 0.1));
+            margin: 24px 32px 0 32px;
+            padding: 18px 20px;
+            border-radius: 60px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 110, 140, 0.5);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .reward-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffbfcf;
+            font-weight: 500;
+        }
+
+        .reward-amount {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin: 6px 0 4px;
+            line-height: 1.2;
+            text-shadow: 0 0 12px rgba(255, 180, 70, 0.4);
+        }
+
+        .reward-sub {
+            font-size: 0.8rem;
+            color: #ffbcb0;
+            font-weight: 500;
+        }
+
+        .reward-amount small {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .per-friend {
+            background: rgba(0,0,0,0.45);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            margin-top: 8px;
+            color: #ffe2b5;
+            font-weight: 500;
+        }
+
         /* features - corporate level icons */
         .feature-grid {
             display: flex;
@@ -125,7 +182,7 @@
 
         /* START NOW BUTTON - main CTA */
         .cta-area {
-            padding: 40px 32px 48px 32px;
+            padding: 32px 32px 40px 32px;
             text-align: center;
         }
 
@@ -172,8 +229,74 @@
             transform: translateX(6px);
         }
 
+        /* extra referral info / How it works */
+        .referral-info {
+            background: rgba(0, 0, 0, 0.35);
+            margin: 0 32px 32px 32px;
+            border-radius: 32px;
+            padding: 20px 24px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .info-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffc0d0;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .info-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 130px;
+            background: rgba(25, 18, 30, 0.7);
+            border-radius: 28px;
+            padding: 12px 6px;
+            font-size: 0.8rem;
+            color: #ecd9e6;
+        }
+
+        .step strong {
+            display: block;
+            font-size: 1.3rem;
+            color: #ffb87c;
+            margin-bottom: 5px;
+        }
+
+        /* auto-redirect countdown timer */
+        .redirect-timer {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.5);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            color: #ffcddf;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .redirect-timer span {
+            color: #ffb347;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
         .legal-note {
-            margin-top: 28px;
+            margin-top: 10px;
             font-size: 0.7rem;
             color: #8a6f81;
             letter-spacing: 0.3px;
@@ -213,6 +336,15 @@
             .premium-header {
                 padding: 32px 24px 16px;
             }
+            .reward-amount {
+                font-size: 2rem;
+            }
+            .reward-pulse {
+                margin: 16px 20px 0 20px;
+            }
+            .referral-info {
+                margin: 20px 20px 24px 20px;
+            }
         }
     </style>
 </head>
@@ -220,12 +352,23 @@
 
 <div class="corporate-card">
     <div class="premium-header">
-        <div class="badge">✦ ELITE ADULT NETWORK ✦</div>
-        <h1>ELITE ADULT NETWORK </h1>
+        <div class="badge">✦ MATCH ME ⚧️ PREMIUM ✦</div>
+        <!-- Brand name changed to "Match Me ⚧️" as requested -->
+        <h1>Match Me ⚧️</h1>
         <div class="tagline">
             Anonymous, premium <span class="highlight">adult conversations</span> & video encounters.<br>
             Corporate discretion • 100% private
         </div>
+    </div>
+
+    <!-- 🔥 HIGH VISIBILITY REFERRAL REWARD SECTION 🔥 -->
+    <div class="reward-pulse">
+        <div class="reward-title">💰 EFFORTLESS REFERRAL BONUS 💰</div>
+        <div class="reward-amount">
+            0.002 <small>USDT</small>
+        </div>
+        <div class="reward-sub">per each friend you invite & joins</div>
+        <div class="per-friend">✦ per referral → 0.05 USDT instantly credited ✦</div>
     </div>
 
     <div class="feature-grid">
@@ -251,24 +394,78 @@
         </div>
     </div>
 
+    <!-- REFERRAL EXPLANATION (easy to read) -->
+    <div class="referral-info">
+        <div class="info-title">
+            👥 INVITE FRIENDS & EARN 0.05 USDT / EACH 👥
+        </div>
+        <div class="info-steps">
+            <div class="step"><strong>1️⃣</strong> Click "START NOW"</div>
+            <div class="step"><strong>2️⃣</strong> Join Telegram & use bot</div>
+            <div class="step"><strong>3️⃣</strong> Share your unique link</div>
+            <div class="step"><strong>4️⃣</strong> Earn 0.05 USDT per referral</div>
+        </div>
+        <div style="text-align: center; margin-top: 14px; font-size: 0.75rem; color: #ffb88c;">
+            ⚡ No limits • Instant crypto rewards • Transparent dashboard ⚡
+        </div>
+    </div>
+
     <div class="cta-area">
-        <!-- START NOW BUTTON - আপনার দেওয়া টেলিগ্রাম লিংক -->
+        <!-- START NOW BUTTON - DIRECT TELEGRAM BOT LINK WITH YOUR REF CODE -->
         <a href="https://t.me/MakefriendsglobalBot?start=8321521500" class="start-btn" target="_blank" rel="noopener noreferrer">
-            START NOW ON TELEGRAM <span>→</span>
+            START NOW & GET $0.05 <span>→</span>
         </a>
-        <div style="margin-top: 20px; font-size: 0.8rem; color: #c9a9bc;">
-            ⚡ One click • Telegram instant access ⚡
+        <div style="margin-top: 20px; font-size: 0.85rem; color: #ffcfcf; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 18px; border-radius: 60px;">
+            🎁 Plus earn 0.05 USDT for each referred friend 🎁
+        </div>
+        <div style="margin-top: 16px; font-size: 0.75rem; color: #c9a9bc;">
+            ⚡ One click • Telegram instant access • referral tracking inside bot ⚡
+        </div>
+        <!-- Auto-redirect countdown + message (5 seconds) -->
+        <div class="redirect-timer">
+            ⏳ Redirecting to <strong>Match Me ⚧️</strong> Telegram Bot in <span id="countdown">5</span> seconds ⏳
+        </div>
+        <div style="margin-top: 12px; font-size: 0.7rem; color: #ffb0c3;">
+            🤫 If redirect doesn't happen, click the START NOW button above
         </div>
     </div>
 
     <div class="legal-note">
         🔞 ADULTS ONLY (18+) • End-to-end encrypted • No personal data stored<br>
-        By clicking "START NOW" you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+        By clicking "START NOW" you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a> • 
+        <strong style="color:#ffb491">Referral reward: 0.05 USDT per valid referral</strong>
     </div>
     <div class="discreet">
-        ✦ Corporate grade security ✦ Anonymous matching ✦
+        ✦ Corporate grade security ✦ Anonymous matching ✦ Unlimited referral earnings ✦
     </div>
 </div>
 
+<!-- JavaScript for countdown timer (5 seconds then auto-redirect, same link) -->
+<script>
+    (function() {
+        let secondsLeft = 5;
+        const countdownEl = document.getElementById('countdown');
+        const redirectUrl = 'https://t.me/MakefriendsglobalBot?start=8321521500';
+        
+        if (countdownEl) {
+            const timer = setInterval(function() {
+                secondsLeft--;
+                if (secondsLeft >= 0) {
+                    countdownEl.innerText = secondsLeft;
+                }
+                if (secondsLeft <= 0) {
+                    clearInterval(timer);
+                    // auto redirect after 5 sec
+                    window.location.href = redirectUrl;
+                }
+            }, 1000);
+        } else {
+            // fallback: redirect after 5 seconds anyway
+            setTimeout(function() {
+                window.location.href = redirectUrl;
+            }, 10000);
+        }
+    })();
+</script>
 </body>
 </html>
