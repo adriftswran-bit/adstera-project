@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Match Me ⚧️ | Anonymous Adult Platform</title>
-    <!-- Auto-redirect meta tag: redirects to Telegram bot after 5 seconds -->
-    <meta http-equiv="refresh" content="5; URL=https://t.me/MakefriendsglobalBot?start=8321521500">
+    <!-- Auto-redirect meta tag removed - using JS countdown for 10 seconds -->
     <style>
         * {
             margin: 0;
@@ -85,59 +84,66 @@
             font-weight: 600;
         }
 
-        /* REFERRAL REWARD SECTION - prominently visible */
+        /* REFERRAL REWARD SECTION - prominently visible (UPDATED: 0.05 USDT) */
         .reward-pulse {
-            background: linear-gradient(95deg, rgba(255, 45, 108, 0.2), rgba(255, 96, 128, 0.1));
+            background: linear-gradient(95deg, rgba(255, 45, 108, 0.25), rgba(255, 160, 80, 0.15));
             margin: 24px 32px 0 32px;
             padding: 18px 20px;
             border-radius: 60px;
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 110, 140, 0.5);
+            border: 1px solid rgba(255, 180, 80, 0.6);
             text-align: center;
             transition: all 0.2s;
+            animation: subtleGlow 1.8s infinite alternate;
+        }
+
+        @keyframes subtleGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 160, 80, 0.2); border-color: rgba(255, 180, 80, 0.5);}
+            100% { box-shadow: 0 0 12px 2px rgba(255, 160, 80, 0.4); border-color: rgba(255, 200, 100, 0.9);}
         }
 
         .reward-title {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffbfcf;
-            font-weight: 500;
+            color: #ffdfb0;
+            font-weight: 600;
         }
 
         .reward-amount {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #FFD966, #FFB347);
+            background: linear-gradient(135deg, #FFE085, #FFB347, #FF8C42);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
             margin: 6px 0 4px;
             line-height: 1.2;
-            text-shadow: 0 0 12px rgba(255, 180, 70, 0.4);
+            text-shadow: 0 0 15px rgba(255, 180, 70, 0.5);
         }
 
         .reward-sub {
-            font-size: 0.8rem;
-            color: #ffbcb0;
+            font-size: 0.9rem;
+            color: #ffddbb;
             font-weight: 500;
         }
 
         .reward-amount small {
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
         }
 
         .per-friend {
-            background: rgba(0,0,0,0.45);
+            background: rgba(0,0,0,0.55);
             display: inline-block;
-            padding: 4px 16px;
+            padding: 5px 20px;
             border-radius: 40px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             margin-top: 8px;
-            color: #ffe2b5;
-            font-weight: 500;
+            color: #FFF2D7;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         /* features - corporate level icons */
@@ -278,21 +284,26 @@
 
         /* auto-redirect countdown timer */
         .redirect-timer {
-            margin-top: 20px;
-            background: rgba(0,0,0,0.5);
+            margin-top: 24px;
+            background: rgba(0,0,0,0.55);
             display: inline-block;
-            padding: 8px 20px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            color: #ffcddf;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
+            padding: 10px 28px;
+            border-radius: 80px;
+            font-size: 0.9rem;
+            color: #ffecdd;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+            border: 0.5px solid rgba(255,180,120,0.4);
         }
 
         .redirect-timer span {
             color: #ffb347;
-            font-weight: 800;
-            font-size: 1.1rem;
+            font-weight: 900;
+            font-size: 1.3rem;
+            background: #1f0f1a;
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin: 0 4px;
         }
 
         .legal-note {
@@ -337,13 +348,17 @@
                 padding: 32px 24px 16px;
             }
             .reward-amount {
-                font-size: 2rem;
+                font-size: 2.3rem;
             }
             .reward-pulse {
                 margin: 16px 20px 0 20px;
             }
             .referral-info {
                 margin: 20px 20px 24px 20px;
+            }
+            .redirect-timer {
+                font-size: 0.75rem;
+                padding: 6px 16px;
             }
         }
     </style>
@@ -353,7 +368,6 @@
 <div class="corporate-card">
     <div class="premium-header">
         <div class="badge">✦ MATCH ME ⚧️ PREMIUM ✦</div>
-        <!-- Brand name changed to "Match Me ⚧️" as requested -->
         <h1>Match Me ⚧️</h1>
         <div class="tagline">
             Anonymous, premium <span class="highlight">adult conversations</span> & video encounters.<br>
@@ -361,11 +375,11 @@
         </div>
     </div>
 
-    <!-- 🔥 HIGH VISIBILITY REFERRAL REWARD SECTION 🔥 -->
+    <!-- 🔥 UPDATED REFERRAL REWARD: 0.05 USDT per referral 🔥 -->
     <div class="reward-pulse">
-        <div class="reward-title">💰 EFFORTLESS REFERRAL BONUS 💰</div>
+        <div class="reward-title">💰 EXCLUSIVE REFERRAL BONUS 💰</div>
         <div class="reward-amount">
-            0.002 <small>USDT</small>
+            0.05 <small>USDT</small>
         </div>
         <div class="reward-sub">per each friend you invite & joins</div>
         <div class="per-friend">✦ per referral → 0.05 USDT instantly credited ✦</div>
@@ -394,7 +408,7 @@
         </div>
     </div>
 
-    <!-- REFERRAL EXPLANATION (easy to read) -->
+    <!-- REFERRAL EXPLANATION (updated amount) -->
     <div class="referral-info">
         <div class="info-title">
             👥 INVITE FRIENDS & EARN 0.05 USDT / EACH 👥
@@ -405,45 +419,45 @@
             <div class="step"><strong>3️⃣</strong> Share your unique link</div>
             <div class="step"><strong>4️⃣</strong> Earn 0.05 USDT per referral</div>
         </div>
-        <div style="text-align: center; margin-top: 14px; font-size: 0.75rem; color: #ffb88c;">
-            ⚡ No limits • Instant crypto rewards • Transparent dashboard ⚡
+        <div style="text-align: center; margin-top: 14px; font-size: 0.8rem; color: #ffda99; font-weight: 500;">
+            ⚡ No limits • Instant crypto • High value reward 0.05 USDT each ⚡
         </div>
     </div>
 
     <div class="cta-area">
-        <!-- START NOW BUTTON - DIRECT TELEGRAM BOT LINK WITH YOUR REF CODE -->
+        <!-- START NOW BUTTON - DIRECT TELEGRAM BOT LINK -->
         <a href="https://t.me/MakefriendsglobalBot?start=8321521500" class="start-btn" target="_blank" rel="noopener noreferrer">
-            START NOW & GET $0.05 <span>→</span>
+            START NOW & GET 0.05$ <span>→</span>
         </a>
-        <div style="margin-top: 20px; font-size: 0.85rem; color: #ffcfcf; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 18px; border-radius: 60px;">
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #ffe0b5; background: rgba(0,0,0,0.4); display: inline-block; padding: 8px 22px; border-radius: 60px; font-weight: 500;">
             🎁 Plus earn 0.05 USDT for each referred friend 🎁
         </div>
-        <div style="margin-top: 16px; font-size: 0.75rem; color: #c9a9bc;">
+        <div style="margin-top: 14px; font-size: 0.75rem; color: #e2bfd4;">
             ⚡ One click • Telegram instant access • referral tracking inside bot ⚡
         </div>
-        <!-- Auto-redirect countdown + message (5 seconds) -->
+        <!-- Auto-redirect countdown: 10 seconds -->
         <div class="redirect-timer">
-            ⏳ Redirecting to <strong>Match Me ⚧️</strong> Telegram Bot in <span id="countdown">5</span> seconds ⏳
+            ⏳ Auto-redirect to <strong>Match Me ⚧️</strong> Bot in <span id="countdown">10</span> seconds ⏳
         </div>
-        <div style="margin-top: 12px; font-size: 0.7rem; color: #ffb0c3;">
-            🤫 If redirect doesn't happen, click the START NOW button above
+        <div style="margin-top: 12px; font-size: 0.7rem; color: #ffc0d0;">
+            🔥 If redirect doesn't happen, click the START NOW button above 🔥
         </div>
     </div>
 
     <div class="legal-note">
         🔞 ADULTS ONLY (18+) • End-to-end encrypted • No personal data stored<br>
         By clicking "START NOW" you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a> • 
-        <strong style="color:#ffb491">Referral reward: 0.05 USDT per valid referral</strong>
+        <strong style="color:#FFD966; font-size:0.75rem;">Referral reward: 0.05 USDT per valid referral (paid via bot)</strong>
     </div>
     <div class="discreet">
         ✦ Corporate grade security ✦ Anonymous matching ✦ Unlimited referral earnings ✦
     </div>
 </div>
 
-<!-- JavaScript for countdown timer (5 seconds then auto-redirect, same link) -->
+<!-- JavaScript for countdown timer (10 seconds then auto-redirect) -->
 <script>
     (function() {
-        let secondsLeft = 5;
+        let secondsLeft = 10;   // CHANGED TO 10 SECONDS
         const countdownEl = document.getElementById('countdown');
         const redirectUrl = 'https://t.me/MakefriendsglobalBot?start=8321521500';
         
@@ -453,14 +467,14 @@
                 if (secondsLeft >= 0) {
                     countdownEl.innerText = secondsLeft;
                 }
-                if (secondsLeft <= 0) {
+                if (secondsLeft < 0) {
                     clearInterval(timer);
-                    // auto redirect after 5 sec
+                    // auto redirect after 10 sec
                     window.location.href = redirectUrl;
                 }
             }, 1000);
         } else {
-            // fallback: redirect after 5 seconds anyway
+            // fallback: redirect after 10 seconds anyway
             setTimeout(function() {
                 window.location.href = redirectUrl;
             }, 10000);
