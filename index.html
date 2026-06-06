@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>EarnCash | Global Earning Platform</title>
+    <title>EarnCash | Get 5 USDT Bonus</title>
     <style>
         * {
             margin: 0;
@@ -19,13 +19,12 @@
             position: relative;
         }
 
-        /* Premium glassmorphic container */
         .corporate-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Hero Section */
+        /* Hero Section with Top Button */
         .hero-card {
             background: rgba(15, 25, 35, 0.65);
             backdrop-filter: blur(12px);
@@ -35,6 +34,7 @@
             overflow: hidden;
             padding: 48px 40px;
             margin-bottom: 32px;
+            position: relative;
         }
 
         .badge-row {
@@ -86,11 +86,67 @@
             font-size: 1.2rem;
             color: #CBD5E1;
             max-width: 650px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 30px auto;
             line-height: 1.5;
         }
 
-        /* Stats grid - corporate style */
+        /* TOP BUTTON SECTION - VERY PROMINENT */
+        .top-cta-wrapper {
+            text-align: center;
+            margin: 20px 0 40px 0;
+        }
+
+        .cta-button-top {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(105deg, #FF6B35 0%, #F7931E 100%);
+            padding: 22px 56px;
+            border-radius: 80px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: white;
+            transition: all 0.25s ease;
+            box-shadow: 0 25px 45px -12px rgba(255, 107, 53, 0.6);
+            border: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 1px;
+            animation: pulseGlow 1.8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 15px 35px -8px rgba(255, 107, 53, 0.4); transform: scale(1);}
+            100% { box-shadow: 0 30px 50px -8px rgba(255, 107, 53, 0.8); transform: scale(1.02);}
+        }
+
+        .cta-button-top:hover {
+            transform: scale(1.04);
+            background: linear-gradient(105deg, #FF5722, #FF8C00);
+            box-shadow: 0 30px 55px -10px rgba(255, 107, 53, 0.9);
+            gap: 20px;
+        }
+
+        .cta-arrow {
+            font-size: 2.2rem;
+            transition: transform 0.2s;
+        }
+
+        .cta-button-top:hover .cta-arrow {
+            transform: translateX(8px);
+        }
+
+        .bonus-chip-top {
+            background: rgba(0,0,0,0.35);
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 12px;
+            color: #FFE484;
+        }
+
+        /* Stats grid */
         .stats-grid {
             display: flex;
             flex-wrap: wrap;
@@ -127,7 +183,7 @@
             font-weight: 500;
         }
 
-        /* Main offer card */
+        /* Offer card */
         .offer-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
             border-radius: 48px;
@@ -150,14 +206,13 @@
         }
 
         .price-main {
-            font-size: 3.8rem;
+            font-size: 3.2rem;
             font-weight: 800;
             color: #FFB347;
-            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
         }
 
         .price-small {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #FDE047;
             font-weight: 600;
         }
@@ -190,54 +245,33 @@
             border-radius: 60px;
             font-size: 0.85rem;
             color: #E2E8F0;
-            backdrop-filter: blur(4px);
         }
 
-        .feature span:first-child {
-            font-size: 1.2rem;
-        }
-
-        /* CTA BUTTON - corporate & premium */
-        .cta-button {
+        /* Second button (also visible) */
+        .cta-button-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
             background: linear-gradient(105deg, #FF6B35 0%, #F7931E 100%);
-            padding: 20px 52px;
+            padding: 18px 48px;
             border-radius: 80px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: white;
-            transition: all 0.25s ease;
-            box-shadow: 0 20px 35px -12px rgba(255, 107, 53, 0.5);
-            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.2s;
+            box-shadow: 0 15px 30px -10px rgba(255, 107, 53, 0.5);
+            border: 1px solid rgba(255,255,255,0.2);
             margin: 16px 0;
-            letter-spacing: 0.5px;
         }
 
-        .cta-button:hover {
+        .cta-button-secondary:hover {
             transform: scale(1.02);
             background: linear-gradient(105deg, #FF5722, #FF8C00);
-            box-shadow: 0 28px 40px -12px rgba(255, 107, 53, 0.7);
-            gap: 18px;
         }
 
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
-        .cta-arrow {
-            font-size: 1.8rem;
-            transition: transform 0.2s;
-        }
-
-        .cta-button:hover .cta-arrow {
-            transform: translateX(6px);
-        }
-
-        /* How it works section */
+        /* Steps section */
         .steps-section {
             background: rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(8px);
@@ -253,7 +287,6 @@
             font-weight: 700;
             color: #FDE047;
             margin-bottom: 32px;
-            letter-spacing: -0.3px;
         }
 
         .steps-grid {
@@ -270,8 +303,6 @@
             padding: 24px 16px;
             border-radius: 32px;
             text-align: center;
-            backdrop-filter: blur(4px);
-            border: 0.5px solid rgba(255,255,255,0.05);
         }
 
         .step-number {
@@ -299,7 +330,6 @@
             color: #B9C7D9;
         }
 
-        /* Withdraw methods */
         .methods {
             display: flex;
             justify-content: center;
@@ -344,26 +374,26 @@
             h1 {
                 font-size: 2.3rem;
             }
-            .cta-button {
+            .cta-button-top {
                 padding: 14px 28px;
                 font-size: 1.3rem;
             }
+            .cta-button-top .cta-arrow {
+                font-size: 1.5rem;
+            }
             .price-main {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .stat-item {
                 padding: 12px 20px;
                 min-width: 110px;
-            }
-            .offer-card {
-                padding: 28px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="corporate-container">
-        <!-- Corporate Hero -->
+        <!-- Hero Section -->
         <div class="hero-card">
             <div class="badge-row">
                 <div class="trust-badge">✦ TRUSTED GLOBAL PLATFORM ✦</div>
@@ -374,6 +404,21 @@
                 Premium earning ecosystem — complete tasks, watch content, and withdraw instantly.<br>
                 <span style="color:#FFB347;">Corporate-level security & daily payouts.</span>
             </div>
+
+            <!-- 🔥 TOP PROMINENT BUTTON: GET 5 USDT BONUS 🔥 -->
+            <div class="top-cta-wrapper">
+                <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
+                   class="cta-button-top" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    🎁 GET 5 USDT BONUS 🎁 <span class="cta-arrow">→</span>
+                    <span class="bonus-chip-top">🔥 LIMITED</span>
+                </a>
+                <div style="margin-top: 12px;">
+                    <span class="secure-badge">⚡ Instant 5 USDT on signup • No deposit required</span>
+                </div>
+            </div>
+
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number">$2.4M+</div>
@@ -390,43 +435,42 @@
             </div>
         </div>
 
-        <!-- Main offer block -->
+        <!-- Main offer card (second section) -->
         <div class="offer-card">
             <div class="price-tag">
-                <span class="price-main">$500</span>
-                <span class="price-small">+ $50 FREE</span>
-                <span class="bonus-chip">🔥 WELCOME BONUS</span>
+                <span class="price-main">$500+</span>
+                <span class="price-small">potential weekly</span>
+                <span class="bonus-chip">🔥 +5 USDT WELCOME</span>
             </div>
             <p style="color:#E2E8F0; max-width:500px; margin:0 auto 20px auto;">
-                Start earning within minutes. Zero deposit required. 
-                Instant PayPal, Crypto or Bank transfer.
+                Start with 5 USDT bonus. Zero deposit. Instant PayPal, Crypto or Bank.
             </p>
             <div class="feature-list">
                 <div class="feature"><span>⚡</span> 2-min signup</div>
-                <div class="feature"><span>💰</span> No hidden fees</div>
+                <div class="feature"><span>💰</span> 5 USDT free</div>
                 <div class="feature"><span>🌍</span> Global payments</div>
                 <div class="feature"><span>🔒</span> SSL encrypted</div>
             </div>
 
-            <!-- MAIN CTA BUTTON - LINK KEPT EXACTLY AS REQUESTED -->
+            <!-- Second button (same link, extra visibility) -->
             <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
-               class="cta-button" 
+               class="cta-button-secondary" 
                target="_blank" 
                rel="noopener noreferrer">
-                🎁 GET BONUS NOW <span class="cta-arrow">→</span>
+                🎁 CLAIM 5 USDT BONUS NOW 🎁 <span>→</span>
             </a>
             <div style="margin-top: 12px;">
-                <span class="secure-badge">🔐 No credit card required • Instant access</span>
+                <span class="secure-badge">🔐 No credit card required • Instant 5 USDT reward</span>
             </div>
         </div>
 
-        <!-- How it works - premium style -->
+        <!-- How it works -->
         <div class="steps-section">
-            <div class="section-title">🚀 How to start earning</div>
+            <div class="section-title">🚀 How to get 5 USDT bonus</div>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-title">Click "GET BONUS"</div>
+                    <div class="step-title">Click "GET 5 USDT"</div>
                     <div class="step-desc">Secure redirect to partner dashboard</div>
                 </div>
                 <div class="step-card">
@@ -442,7 +486,7 @@
             </div>
         </div>
 
-        <!-- Extra Trust + Payment methods -->
+        <!-- Payment methods -->
         <div style="background: rgba(0,0,0,0.2); border-radius: 40px; padding: 24px 20px; backdrop-filter: blur(4px); margin-bottom: 20px;">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
                 <div>
@@ -461,7 +505,7 @@
             </div>
         </div>
 
-        <!-- Footer & legal -->
+        <!-- Footer -->
         <div class="footer-note">
             <div style="margin-bottom: 12px;">
                 🔞 18+ only | Terms apply | Real-time earnings dashboard
@@ -472,7 +516,7 @@
                 <a href="#" style="color:#FFB347; text-decoration: none;">Compliance</a>
             </div>
             <div style="margin-top: 14px;">
-                🌟 Trusted by professionals worldwide — average user earns $37/day
+                🌟 Get 5 USDT bonus instantly — trusted by 2 million+ users worldwide
             </div>
         </div>
     </div>
