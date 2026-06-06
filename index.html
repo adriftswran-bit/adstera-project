@@ -2,8 +2,8 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnCash | Make Money Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Elite Connect | Anonymous Adult Platform</title>
     <style>
         * {
             margin: 0;
@@ -12,179 +12,263 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(145deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background: linear-gradient(145deg, #0a050f 0%, #1a0f1f 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
-            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            position: relative;
         }
 
-        .container {
-            max-width: 450px;
-            margin: 0 auto;
+        /* premium glassmorphism + dark vibe */
+        .corporate-card {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(10, 8, 20, 0.65);
+            backdrop-filter: blur(14px);
+            border-radius: 64px 48px 64px 48px;
+            border: 1px solid rgba(255, 70, 120, 0.3);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 100, 150, 0.1) inset;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 32px;
-            padding: 35px 25px;
+        /* header area - luxury adult brand */
+        .premium-header {
+            padding: 48px 40px 24px 40px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            background: radial-gradient(ellipse at 50% 0%, rgba(220, 40, 90, 0.15), transparent 70%);
         }
 
         .badge {
-            background: #ff6b35;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: bold;
             display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .coin {
-            font-size: 64px;
-            margin-bottom: 15px;
+            background: rgba(255, 70, 120, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffb7c5;
+            border: 0.5px solid rgba(255, 90, 130, 0.6);
+            margin-bottom: 24px;
         }
 
         h1 {
-            font-size: 28px;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 44px;
-            font-weight: 800;
-            color: #ff6b35;
-            margin: 15px 0;
-        }
-
-        .price small {
-            font-size: 16px;
-            color: #666;
-        }
-
-        .desc {
-            color: #555;
-            line-height: 1.5;
+            font-size: 3.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFFFFF, #ffb8cc, #ff6080);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
             margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .btn {
-            display: block;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 60px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: transform 0.2s;
-            box-shadow: 0 8px 20px rgba(255,107,53,0.4);
-            margin: 20px 0;
+        .tagline {
+            font-size: 1.25rem;
+            color: #e2cfdd;
+            font-weight: 400;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.4;
         }
 
-        .btn:hover {
-            transform: scale(1.02);
+        .highlight {
+            color: #ff6080;
+            font-weight: 600;
         }
 
-        .stats {
+        /* features - corporate level icons */
+        .feature-grid {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            margin: 20px 0;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 20px;
+            gap: 28px;
+            padding: 36px 32px 20px 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .stat {
+        .feature-item {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            background: rgba(20, 15, 30, 0.6);
+            border-radius: 48px;
+            padding: 16px 12px;
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #ffbfcf;
+            letter-spacing: -0.2px;
+            font-size: 0.9rem;
+        }
+
+        .feature-desc {
+            font-size: 0.75rem;
+            color: #b99eb0;
+            margin-top: 6px;
+        }
+
+        /* START NOW BUTTON - main CTA */
+        .cta-area {
+            padding: 40px 32px 48px 32px;
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 20px;
-            font-weight: 800;
-            color: #ff6b35;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #888;
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 11px;
-            color: #aaa;
-        }
-
-        hr {
-            margin: 20px 0;
+        .start-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(105deg, #ff2d6c 0%, #ff5982 100%);
             border: none;
-            height: 1px;
-            background: #eee;
+            padding: 20px 48px;
+            border-radius: 80px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 15px 30px -10px rgba(255, 45, 108, 0.5);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(2px);
+            font-family: inherit;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.02);
+            background: linear-gradient(105deg, #ff1a5c 0%, #ff4674 100%);
+            box-shadow: 0 22px 35px -12px rgba(255, 45, 108, 0.7);
+            letter-spacing: 1.5px;
+        }
+
+        .start-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* arrow effect */
+        .start-btn span {
+            font-size: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .start-btn:hover span {
+            transform: translateX(6px);
+        }
+
+        .legal-note {
+            margin-top: 28px;
+            font-size: 0.7rem;
+            color: #8a6f81;
+            letter-spacing: 0.3px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 28px;
+            text-align: center;
+        }
+
+        .legal-note a {
+            color: #ff8eaa;
+            text-decoration: none;
+        }
+
+        .discreet {
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            font-size: 0.7rem;
+            text-align: center;
+            color: #6a4e62;
+        }
+
+        @media (max-width: 650px) {
+            .corporate-card {
+                border-radius: 40px 32px 40px 32px;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .start-btn {
+                padding: 16px 32px;
+                font-size: 1.5rem;
+            }
+            .feature-grid {
+                gap: 12px;
+                padding: 24px 16px;
+            }
+            .premium-header {
+                padding: 32px 24px 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="badge">✨ TRUSTED BY 2M+ USERS ✨</div>
-            <div class="coin">💰💎</div>
-            <h1>Claim Your Bonus</h1>
-            <div class="price">
-                $500 <small>+ $50 FREE</small>
-            </div>
-            <p class="desc">
-                Complete simple tasks, watch videos & earn daily. 
-                Instant PayPal, Bitcoin or Bank withdrawal.
-            </p>
 
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">$5</div>
-                    <div class="stat-label">Welcome Bonus</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">2Min</div>
-                    <div class="stat-label">To Start</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Withdraw</div>
-                </div>
-            </div>
-
-            <!-- সরাসরি লিংক - কোনো রিডাইরেক্ট নেই -->
-            <a href="https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed" 
-               class="btn" 
-               target="_blank">
-               🎁 GET BONUS NOW 🎁
-            </a>
-
-            <hr>
-
-            <div class="stats" style="background: none; padding: 0;">
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">No Fee</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">Worldwide</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">✓</div>
-                    <div class="stat-label">Secure</div>
-                </div>
-            </div>
-
-            <div class="footer">
-                🔒 SSL Encrypted | No Credit Card Required
-            </div>
+<div class="corporate-card">
+    <div class="premium-header">
+        <div class="badge">✦ ELITE ADULT NETWORK ✦</div>
+        <h1>ELITE ADULT NETWORK </h1>
+        <div class="tagline">
+            Anonymous, premium <span class="highlight">adult conversations</span> & video encounters.<br>
+            Corporate discretion • 100% private
         </div>
     </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="feature-icon">🔞</div>
+            <div class="feature-title">Age Verified</div>
+            <div class="feature-desc">18+ only secured</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🎥</div>
+            <div class="feature-title">Live Video</div>
+            <div class="feature-desc">Real-time HD</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🕶️</div>
+            <div class="feature-title">Zero Logs</div>
+            <div class="feature-desc">Full anonymity</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">💎</div>
+            <div class="feature-title">Global Elite</div>
+            <div class="feature-desc">50k+ active</div>
+        </div>
+    </div>
+
+    <div class="cta-area">
+        <!-- START NOW BUTTON - আপনার দেওয়া টেলিগ্রাম লিংক -->
+        <a href="https://t.me/MakefriendsglobalBot?start=8321521500" class="start-btn" target="_blank" rel="noopener noreferrer">
+            START NOW ON TELEGRAM <span>→</span>
+        </a>
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #c9a9bc;">
+            ⚡ One click • Telegram instant access ⚡
+        </div>
+    </div>
+
+    <div class="legal-note">
+        🔞 ADULTS ONLY (18+) • End-to-end encrypted • No personal data stored<br>
+        By clicking "START NOW" you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+    </div>
+    <div class="discreet">
+        ✦ Corporate grade security ✦ Anonymous matching ✦
+    </div>
+</div>
+
 </body>
 </html>
