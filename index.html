@@ -1,835 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Adrift Earn - PTC Ads & Earn Coins</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MatchMe 💌 | $5 USDT Bonus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: linear-gradient(145deg, #0a0c12 0%, #0e1117 100%);
-      font-family: 'Inter', sans-serif;
-      color: #eef2ff;
-      padding: 24px 20px 60px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0f17 0%, #2e1a28 100%);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .dashboard {
-      max-width: 1320px;
-      margin: 0 auto;
-    }
+        /* redirect progress bar */
+        .redirect-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            z-index: 1000;
+        }
+        .redirect-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00ffaa, #0088cc);
+            transition: width 0.05s linear;
+        }
+        .redirect-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            border-left: 3px solid #ffaa44;
+        }
+        .cancel-redirect {
+            cursor: pointer;
+            background: #ff4d4d;
+            margin-left: 8px;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
 
-    /* header / top bar */
-    .top-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-      background: rgba(18, 22, 32, 0.7);
-      backdrop-filter: blur(6px);
-      border-radius: 60px;
-      padding: 10px 24px;
-      border: 1px solid rgba(74, 144, 226, 0.25);
-    }
+        .container {
+            max-width: 550px;
+            margin: 2rem 1.5rem;
+            text-align: center;
+        }
 
-    .logo-area {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
+        /* telegram pill */
+        .telegram-pill {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(0,136,204,0.5);
+            margin-bottom: 1.8rem;
+        }
+        .telegram-pill span {
+            background: #0088cc;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.7rem;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #F9E45B, #FFB347);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-    }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #FFE6C0, #FFA5B9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
 
-    .tag {
-      background: #1e2a3a;
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #a0c4ff;
-    }
+        .tagline {
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+        /* main card */
+        .card {
+            background: rgba(20, 12, 22, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 2rem 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,160,140,0.2);
+        }
 
-    .nav-links a {
-      color: #cdd9ff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: 0.2s;
-      cursor: pointer;
-    }
+        .bonus {
+            background: #f5a623;
+            color: #1e1915;
+            font-weight: 800;
+            padding: 0.25rem 0.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
 
-    .nav-links a:hover {
-      color: #F9E45B;
-    }
+        .usdt {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFDE7A;
+        }
 
-    /* Sign Up Now button */
-    .signup-btn {
-      background: linear-gradient(95deg, #F9C74F, #F9844A);
-      border: none;
-      padding: 8px 22px;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0a0c12;
-      cursor: pointer;
-      transition: 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Inter', sans-serif;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+        .btn {
+            background: linear-gradient(95deg, #0088cc, #00aaff);
+            border: none;
+            padding: 0.9rem 1.8rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 1rem 0 0.8rem;
+            transition: 0.2s;
+            box-shadow: 0 8px 20px rgba(0,136,204,0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(95deg, #006699, #0088dd);
+        }
 
-    .signup-btn:hover {
-      transform: scale(1.02);
-      background: linear-gradient(95deg, #FFD966, #FF9F4A);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-    }
+        .small-note {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
 
-    /* New Promo Banner under logo */
-    .promo-banner {
-      background: linear-gradient(95deg, #1f3b4c, #0f2a38);
-      border-radius: 40px;
-      padding: 10px 24px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      border: 1px solid #F9C74F55;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .promo-banner:hover {
-      transform: scale(1.01);
-      background: linear-gradient(95deg, #2a4a60, #1a3a48);
-      border-color: #F9C74F;
-    }
-    .promo-text {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .promo-text i {
-      font-size: 2rem;
-      color: #F9C74F;
-    }
-    .promo-text h3 {
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-    .promo-text p {
-      font-size: 0.85rem;
-      color: #d1e0ff;
-    }
-    .promo-badge {
-      background: #F9C74F;
-      color: #0a0c12;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .features-mini {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0;
+            font-size: 0.8rem;
+        }
 
-    .stats {
-      display: flex;
-      gap: 20px;
-      background: #0f121b;
-      padding: 6px 18px;
-      border-radius: 40px;
-    }
+        .badge {
+            background: rgba(255,255,255,0.08);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
 
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-    }
-
-    .stat-item i {
-      color: #F9C74F;
-    }
-
-    /* hero card */
-    .hero-card {
-      background: linear-gradient(120deg, #131a2c, #0b0f19);
-      border-radius: 2rem;
-      padding: 24px 28px;
-      margin-bottom: 36px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #2a3346;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
-    }
-
-    .hero-left h1 {
-      font-size: 1.9rem;
-      font-weight: 800;
-    }
-
-    .hero-left p {
-      color: #9aa9c1;
-      margin-top: 8px;
-    }
-
-    .earn-badge {
-      background: #00000055;
-      backdrop-filter: blur(8px);
-      padding: 12px 24px;
-      border-radius: 60px;
-      text-align: center;
-      border: 1px solid #ffd966;
-      cursor: pointer;
-    }
-
-    .earn-badge span {
-      font-size: 1.9rem;
-      font-weight: 800;
-      color: #FFD966;
-    }
-
-    .two-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-    }
-
-    .tasks-main {
-      flex: 2;
-      min-width: 260px;
-    }
-
-    .sidebar {
-      flex: 1.2;
-      min-width: 240px;
-    }
-
-    .card {
-      background: #11141f;
-      border-radius: 28px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-      border: 1px solid #232838;
-      transition: 0.2s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-left: 4px solid #F9C74F;
-      padding-left: 14px;
-    }
-
-    .ptc-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .task-item {
-      background: #0c0f18;
-      border-radius: 20px;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      transition: all 0.2s;
-      border: 1px solid #262e3f;
-    }
-
-    .task-info {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .task-icon {
-      width: 44px;
-      height: 44px;
-      background: #1e2a3a;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-
-    .task-details h4 {
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .task-details p {
-      font-size: 0.75rem;
-      color: #8e9bbe;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .reward-badge {
-      background: #1f2a3e;
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #F9E45B;
-    }
-
-    .task-action {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .view-btn {
-      background: linear-gradient(95deg, #2c3e66, #1f2b46);
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 10px 24px;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: 0.2s;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-    }
-
-    .view-btn i {
-      font-size: 0.9rem;
-    }
-
-    .view-btn:hover {
-      background: linear-gradient(95deg, #3e5282, #2c3e66);
-      transform: scale(1.02);
-      box-shadow: 0 5px 12px rgba(0,0,0,0.3);
-    }
-
-    .timer-text {
-      font-size: 0.75rem;
-      font-family: monospace;
-      background: #00000055;
-      padding: 5px 10px;
-      border-radius: 30px;
-    }
-
-    .widget {
-      background: #0e111b;
-      border-radius: 24px;
-      padding: 18px;
-      margin-bottom: 24px;
-      border: 1px solid #293041;
-    }
-
-    .widget-title {
-      font-weight: 700;
-      margin-bottom: 14px;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .ad-space {
-      background: #00000033;
-      border-radius: 20px;
-      padding: 18px;
-      text-align: center;
-      border: 1px dashed #ffb34755;
-      margin-top: 6px;
-    }
-
-    .ad-space p {
-      font-size: 0.7rem;
-      color: #b9c7e6;
-    }
-
-    .bitcoin-bonus {
-      background: #1b1f2d;
-      border-radius: 20px;
-      padding: 14px;
-      text-align: center;
-    }
-
-    .faucet-list {
-      margin-top: 12px;
-    }
-
-    .faucet-list a {
-      display: block;
-      color: #9bb4ff;
-      font-size: 0.75rem;
-      margin: 8px 0;
-      word-break: break-all;
-      text-decoration: none;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .faucet-list a:hover {
-      color: #F9C74F;
-      text-decoration: underline;
-    }
-
-    .surf-mode {
-      background: #10131f;
-      border-radius: 20px;
-      padding: 10px 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .glowing {
-      font-weight: bold;
-      color: #F9C74F;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.75rem;
-      color: #6c7a9e;
-      border-top: 1px solid #222838;
-      padding-top: 28px;
-    }
-
-    @media (max-width: 780px) {
-      .top-bar { flex-direction: column; align-items: stretch; border-radius: 28px; }
-      .stats { justify-content: center; }
-      .hero-card { flex-direction: column; text-align: center; gap: 20px; }
-      .task-item { flex-direction: column; align-items: flex-start; }
-      .task-action { align-self: flex-end; }
-      .promo-banner { flex-direction: column; text-align: center; }
-    }
-
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  </style>
+        footer {
+            font-size: 0.65rem;
+            opacity: 0.6;
+            margin-top: 1.5rem;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<div class="dashboard">
-  <!-- Top navigation & stats with SIGNUP NOW button -->
-  <div class="top-bar">
-    <div class="logo-area">
-      <div class="logo">ADRIFT</div>
-      <div class="tag">PTC · Earn Coins</div>
-    </div>
-    <div class="nav-links">
-      <a href="#" id="navEarn">Earn</a>
-      <a href="#" id="navAdvertise">Advertise</a>
-      <a href="#" id="navHelp">Help&Support</a>
-      <a href="#" id="navBlog">Blog</a>
-      <a href="#" id="navGa">GA</a>
-    </div>
-    <div style="display: flex; align-items: center; gap: 20px;">
-      <div class="stats">
-        <div class="stat-item"><i class="fas fa-coins"></i> <span id="coinBalance">0</span></div>
-        <div class="stat-item"><i class="fas fa-dollar-sign"></i> <span id="usdBalance">$0.00</span></div>
-      </div>
-      <button id="signupNowBtn" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up Now</button>
-    </div>
-  </div>
 
-  <!-- PROMO BANNER: Signup and get 5 USDT Now -->
-  <div id="promoBanner" class="promo-banner">
-    <div class="promo-text">
-      <i class="fas fa-gift"></i>
-      <div>
-        <h3>🔥 Withdraw Instantly! 🔥</h3>
-        <p>Signup and get <strong>5 USDT Now</strong> + Welcome Bonus Coins</p>
-      </div>
-    </div>
-    <div class="promo-badge">
-      <i class="fab fa-usd"></i> Claim 5 USDT →
-    </div>
-  </div>
+<div class="redirect-bar">
+    <div class="redirect-progress" id="redirectProgress"></div>
+</div>
+<div class="redirect-notice" id="redirectNotice">
+    ⏳ Redirecting in <span id="countdownSec">5</span>s 
+    <span class="cancel-redirect" id="cancelRedirectBtn">✖</span>
+</div>
 
-  <!-- Hero earn section -->
-  <div class="hero-card">
-    <div class="hero-left">
-      <h1>Earn Coins & Bonuses  [1 coin = 0.005 USD]</h1>
-      <p>Paid to Click · PTC Ads · View & Earn instantly</p>
+<div class="container">
+    <div class="telegram-pill">
+        📱 <strong>TELEGRAM REQUIRED</strong> <span>must have</span>
     </div>
-    <div class="earn-badge" id="heroEarnBadge">
-      <span><i class="fas fa-tasks"></i> 90 Ads</span><br>
-      <small>900 Coins reward pool</small>
-    </div>
-  </div>
 
-  <!-- main columns: tasks + sidebar -->
-  <div class="two-columns">
-    <!-- LEFT: PTC task list -->
-    <div class="tasks-main">
-      <div class="card">
-        <div class="card-title"><i class="fas fa-mouse-pointer"></i> Paid to Click Ads</div>
-        <div class="ptc-grid" id="ptcTasksContainer"></div>
-        <div style="margin-top: 20px; text-align: center; font-size: 0.75rem; color:#5f739b;">
-          <i class="fas fa-shield-alt"></i> Each ad opens in new tab. Rewards credited after viewing timer.
+    <h1>MatchMe 💌</h1>
+    <div class="tagline">✨ Anonymous Dating · Live Chat ✨</div>
+
+    <div class="card">
+        <div class="bonus">🎁 EXCLUSIVE BONUS 🎁</div>
+        <div>
+            <span class="usdt">$5 USDT</span>
+            <span style="font-size: 1.2rem;"> free for you!</span>
         </div>
-      </div>
+        <p style="margin: 0.8rem 0; font-weight: 500;">⚡ Join now & claim instantly ⚡</p>
 
-      <!-- SURF MODE extra section -->
-      <div class="card">
-        <div class="card-title"><i class="fas fa-globe"></i> Surf Mode · AutoEarn</div>
-        <div class="surf-mode">
-          <span><i class="fas fa-play-circle"></i> 90Ads | 900 Coins</span>
-          <span><i class="fas fa-eye"></i> Unviewed Ads Only</span>
-          <button id="surfModeBtn" class="view-btn" style="padding: 5px 16px;"><i class="fas fa-infinity"></i> Start Surf</button>
+        <a href="https://t.me/MakefriendsglobalBot/Letschat" target="_blank" rel="noopener noreferrer" id="directLink">
+            <button class="btn">
+                🚀 JOIN & GET $5 USDT 🚀
+            </button>
+        </a>
+        <div class="small-note">
+            💡 Opens in Telegram · Claim bonus inside bot
         </div>
-        <p style="font-size: 0.7rem; margin-top: 12px;"><i class="fas fa-chart-line"></i> Watch sequentially & earn automatically</p>
-      </div>
     </div>
 
-    <!-- RIGHT SIDEBAR: all links redirect to TARGET_LINK -->
-    <div class="sidebar">
-      <div class="widget">
-        <div class="widget-title"><i class="fas fa-chart-simple"></i> WIN up to 5 BTC</div>
-        <div class="ad-space" style="background: #010514; cursor: pointer;" id="winBtcWidget">
-          <span style="font-weight:800; color:#FFD966;">+760% deposit bonus</span>
-          <p style="margin-top: 5px;">ADVERTISE HERE</p>
-          <div class="bitcoin-bonus" style="margin-top: 12px;">
-            <i class="fab fa-bitcoin"></i> <strong>BC.GAME</strong><br>
-            <small>win up to 5BTC + 760% deposit bonus</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="widget">
-        <div class="widget-title"><i class="fas fa-hand-holding-usd"></i> Best Crypto Faucet List!</div>
-        <div class="faucet-list" id="faucetList">
-          <a href="#" id="faucetLink1">https://t.me/MakefriendsglobalBot/Letschat</a>
-          <a href="#" id="faucetLink2">https://t.me/MakefriendsglobalBot/Letschat</a>
-          <a href="#" id="faucetLink3">https://t.me/MakefriendsglobalBot/Letschat</a>
-        </div>
-        <div class="ad-space" style="margin-top: 12px; cursor: pointer;" id="claimSpaceWidget">
-          <p><i class="fas fa-gift"></i> Claim Free Crypto Faucets! Get 10 signup bonus faucet rolls! Instant withdraw!</p>
-          <button id="claimSpaceBtn" style="background:#2d3c5e; border:none; border-radius: 40px; padding: 8px 12px; margin-top: 8px; color:white; cursor:pointer;">Claim This Space</button>
-        </div>
-      </div>
-
-      <div class="widget">
-        <div class="widget-title"><i class="fas fa-chart-line"></i> Top Paying Ads</div>
-        <div style="background:#0b0e16; border-radius: 20px; padding: 12px;">
-          <div style="display:flex; justify-content:space-between; cursor: pointer;" class="topPayingItem">
-            <span><i class="fas fa-clock"></i> View for 60sec.</span> <span class="glowing">+9 Coins</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; margin-top: 10px; cursor: pointer;" class="topPayingItem">
-            <span><i class="fas fa-clock"></i> View for 10sec.</span> <span class="glowing">+4 Coins</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; margin-top: 10px; cursor: pointer;" class="topPayingItem">
-            <span><i class="fas fa-clock"></i> View for 10sec.</span> <span class="glowing">+3 Coins</span>
-          </div>
-          <hr style="margin: 12px 0; border-color:#252c3d;">
-          <div class="ad-space" style="background:#000; text-align:center; cursor: pointer;" id="topPayingAdSpace">Opens in new tab. <i class="fas fa-external-link-alt"></i></div>
-        </div>
-      </div>
+    <div class="features-mini">
+        <span class="badge">🎭 100% Anonymous</span>
+        <span class="badge">🎥 Random Video Chat</span>
+        <span class="badge">📸 Photo Share</span>
+        <span class="badge">🔞 18+ Only</span>
     </div>
-  </div>
-  <footer>
-    <i class="fas fa-shield-alt"></i> Secure PTC platform | Grow Your Brand - Build Your Business Right | © Adrift Earn - Claim rewards daily
-  </footer>
+
+    <div class="small-note">
+        ⚠️ Telegram app required · $5 USDT for new members
+    </div>
+
+    <footer>
+        @MakefriendsglobalBot · Click button or wait 5s
+    </footer>
 </div>
 
 <script>
-  // ------------------------- CONFIGURATION -------------------------
-  // The ONLY link that will open everywhere
-  const TARGET_LINK = "https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed";
-  
-  // Task data (6 tasks)
-  const tasksData = [
-    { id: 1, title: "Premium Banner Ad", durationSec: 60, reward: 9, icon: "fas fa-ad", description: "High value CPM spot" },
-    { id: 2, title: "Video spotlight", durationSec: 10, reward: 4, icon: "fas fa-video", description: "Short interactive ad" },
-    { id: 3, title: "Crypto Exchange Ad", durationSec: 10, reward: 4, icon: "fab fa-bitcoin", description: "BTC offerwall" },
-    { id: 4, title: "Gaming Faucet", durationSec: 30, reward: 7, icon: "fas fa-gamepad", description: "Earn extra rolls" },
-    { id: 5, title: "Exclusive Deal", durationSec: 45, reward: 10, icon: "fas fa-tags", description: "Limited time" },
-    { id: 6, title: "Bonus View", durationSec: 15, reward: 5, icon: "fas fa-star", description: "Daily high reward" }
-  ];
-  
-  let activeTimers = {};
-  let taskLocked = {};
-  let userCoins = 0;
+    (function() {
+        const BOT_URL = "https://t.me/MakefriendsglobalBot/Letschat";
+        let redirectTimer = null;
+        let countdownInterval = null;
+        let redirectEnabled = true;
+        let secondsLeft = 5;
+        const progressBar = document.getElementById('redirectProgress');
+        const countdownSpan = document.getElementById('countdownSec');
+        const cancelBtn = document.getElementById('cancelRedirectBtn');
+        const redirectNoticeDiv = document.getElementById('redirectNotice');
 
-  const container = document.getElementById("ptcTasksContainer");
-  const coinSpan = document.getElementById("coinBalance");
-  const usdSpan = document.getElementById("usdBalance");
-  
-  function updateUI() {
-    coinSpan.innerText = userCoins.toLocaleString();
-    let usdValue = (userCoins * 0.005).toFixed(2);   // 1 coin = 0.005 USD as per hero text
-    usdSpan.innerText = `$${usdValue}`;
-  }
-
-  function completeTask(taskId, rewardAmount) {
-    if(taskLocked[taskId] === true) {
-      userCoins += rewardAmount;
-      updateUI();
-      const taskElement = document.querySelector(`.task-item[data-id='${taskId}']`);
-      if(taskElement) {
-        const rewardBadge = taskElement.querySelector(".reward-badge");
-        if(rewardBadge) {
-          rewardBadge.style.transform = "scale(1.1)";
-          rewardBadge.style.color = "#FFD966";
-          setTimeout(() => { if(rewardBadge) rewardBadge.style.transform = ""; }, 300);
+        function performRedirect() {
+            if (!redirectEnabled) return;
+            if (redirectTimer) clearTimeout(redirectTimer);
+            if (countdownInterval) clearInterval(countdownInterval);
+            window.location.href = BOT_URL;
         }
-        const btn = taskElement.querySelector(".view-btn");
-        if(btn) {
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-eye"></i> View';
-          const timerSpan = taskElement.querySelector(".timer-text");
-          if(timerSpan) timerSpan.remove();
+
+        function updateProgress(remainingSec, totalSec = 5) {
+            if (progressBar) {
+                let percent = ((totalSec - remainingSec) / totalSec) * 100;
+                progressBar.style.width = percent + '%';
+            }
         }
-      }
-      taskLocked[taskId] = false;
-      delete activeTimers[taskId];
-    }
-  }
 
-  function startTaskCountdown(taskId, durationSec, rewardAmount) {
-    if(taskLocked[taskId]) {
-      alert("Please wait, you are already viewing this ad.");
-      return false;
-    }
-    
-    window.open(TARGET_LINK, "_blank");
-    
-    taskLocked[taskId] = true;
-    const taskElement = document.querySelector(`.task-item[data-id='${taskId}']`);
-    if(!taskElement) return false;
-    
-    const actionDiv = taskElement.querySelector(".task-action");
-    const viewBtn = taskElement.querySelector(".view-btn");
-    if(viewBtn) {
-      viewBtn.disabled = true;
-      viewBtn.innerHTML = `<i class="fas fa-hourglass-half"></i> ${durationSec}s`;
-    }
-    let existingTimer = taskElement.querySelector(".timer-text");
-    if(!existingTimer) {
-      const timerSpan = document.createElement("div");
-      timerSpan.className = "timer-text";
-      timerSpan.innerText = `⏱️ wait ${durationSec} sec`;
-      actionDiv.appendChild(timerSpan);
-    } else {
-      existingTimer.innerText = `⏱️ wait ${durationSec} sec`;
-    }
-    
-    let remaining = durationSec;
-    const interval = setInterval(() => {
-      if(!taskLocked[taskId]) {
-        clearInterval(interval);
-        return;
-      }
-      remaining--;
-      const timerSpan = taskElement.querySelector(".timer-text");
-      if(timerSpan) timerSpan.innerText = `⏱️ ${remaining} sec`;
-      if(remaining <= 0) {
-        clearInterval(interval);
-        completeTask(taskId, rewardAmount);
-      }
-    }, 1000);
-    
-    activeTimers[taskId] = interval;
-    return true;
-  }
-
-  function renderTasks() {
-    container.innerHTML = "";
-    tasksData.forEach(task => {
-      const taskDiv = document.createElement("div");
-      taskDiv.className = "task-item";
-      taskDiv.setAttribute("data-id", task.id);
-      taskDiv.innerHTML = `
-        <div class="task-info">
-          <div class="task-icon"><i class="${task.icon}"></i></div>
-          <div class="task-details">
-            <h4>${task.title}</h4>
-            <p><i class="fas fa-clock"></i> View for ${task.durationSec} seconds. · <i class="fas fa-coins"></i> Earn ${task.reward} Coins</p>
-          </div>
-        </div>
-        <div class="task-action">
-          <div class="reward-badge">+${task.reward} Coins</div>
-          <button class="view-btn" data-id="${task.id}"><i class="fas fa-eye"></i> View</button>
-        </div>
-      `;
-      container.appendChild(taskDiv);
-    });
-    
-    document.querySelectorAll(".view-btn").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const taskId = parseInt(btn.getAttribute("data-id"));
-        const task = tasksData.find(t => t.id === taskId);
-        if(task && !taskLocked[taskId]) {
-          startTaskCountdown(task.id, task.durationSec, task.reward);
-        } else if(taskLocked[taskId]) {
-          alert("Ad is currently in progress. Wait for timer to finish.");
+        function startRedirectCountdown() {
+            secondsLeft = 5;
+            if (countdownSpan) countdownSpan.innerText = secondsLeft;
+            updateProgress(0, 5);
+            
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                if (!redirectEnabled) return;
+                if (secondsLeft <= 1) {
+                    clearInterval(countdownInterval);
+                    performRedirect();
+                } else {
+                    secondsLeft--;
+                    if (countdownSpan) countdownSpan.innerText = secondsLeft;
+                    updateProgress(5 - secondsLeft, 5);
+                }
+            }, 1000);
         }
-      });
-    });
-  }
 
-  let surfActive = false;
-  function startSurfMode() {
-    if(surfActive) {
-      alert("Surf mode already active! Complete current cycle.");
-      return;
-    }
-    const available = tasksData.filter(t => !taskLocked[t.id]);
-    if(available.length === 0) {
-      alert("All tasks are locked or pending. Wait a moment.");
-      return;
-    }
-    surfActive = true;
-    let index = 0;
-    function processNext() {
-      if(index >= available.length) {
-        surfActive = false;
-        alert("Surf mode completed! Coins added!");
-        return;
-      }
-      const task = available[index];
-      if(taskLocked[task.id]) {
-        index++;
-        processNext();
-        return;
-      }
-      const started = startTaskCountdown(task.id, task.durationSec, task.reward);
-      if(started) {
-        const checkInterval = setInterval(() => {
-          if(!taskLocked[task.id]) {
-            clearInterval(checkInterval);
-            index++;
-            processNext();
-          }
-        }, 500);
-      } else {
-        index++;
-        processNext();
-      }
-    }
-    processNext();
-  }
+        function cancelRedirect() {
+            if (!redirectEnabled) return;
+            redirectEnabled = false;
+            if (redirectTimer) clearTimeout(redirectTimer);
+            if (countdownInterval) clearInterval(countdownInterval);
+            if (redirectNoticeDiv) {
+                redirectNoticeDiv.innerHTML = '⏸️ Cancelled · Click button ↑';
+                redirectNoticeDiv.style.opacity = '0.7';
+            }
+            if (progressBar) progressBar.style.width = '0%';
+        }
 
-  function makeOpenTargetLink(element) {
-    if(!element) return;
-    element.style.cursor = "pointer";
-    element.addEventListener("click", (e) => {
-      e.stopPropagation();
-      window.open(TARGET_LINK, "_blank");
-    });
-  }
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cancelRedirect();
+            });
+        }
 
-  function bindAllLinksToTarget() {
-    // Navigation links
-    document.getElementById("navEarn")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
-    document.getElementById("navAdvertise")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
-    document.getElementById("navHelp")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
-    document.getElementById("navBlog")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
-    document.getElementById("navGa")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
-    
-    // Signup button
-    const signupBtn = document.getElementById("signupNowBtn");
-    if(signupBtn) signupBtn.addEventListener("click", () => { window.open(TARGET_LINK, "_blank"); });
-    
-    // Promo Banner (5 USDT)
-    const promo = document.getElementById("promoBanner");
-    if(promo) makeOpenTargetLink(promo);
-    
-    // Hero badge
-    const heroBadge = document.getElementById("heroEarnBadge");
-    if(heroBadge) makeOpenTargetLink(heroBadge);
-    
-    // Sidebar widgets
-    const winWidget = document.getElementById("winBtcWidget");
-    if(winWidget) makeOpenTargetLink(winWidget);
-    
-    const faucetLinks = document.querySelectorAll("#faucetList a");
-    faucetLinks.forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.open(TARGET_LINK, "_blank");
-      });
-    });
-    
-    const claimBtn = document.getElementById("claimSpaceBtn");
-    if(claimBtn) claimBtn.addEventListener("click", (e) => { e.stopPropagation(); window.open(TARGET_LINK, "_blank"); });
-    const claimWidget = document.getElementById("claimSpaceWidget");
-    if(claimWidget) makeOpenTargetLink(claimWidget);
-    
-    const topItems = document.querySelectorAll(".topPayingItem");
-    topItems.forEach(item => makeOpenTargetLink(item));
-    const topAdSpace = document.getElementById("topPayingAdSpace");
-    if(topAdSpace) makeOpenTargetLink(topAdSpace);
-    
-    const anyGlowing = document.querySelectorAll(".widget:last-child .glowing");
-    anyGlowing.forEach(el => makeOpenTargetLink(el));
-    
-    const allAdSpaces = document.querySelectorAll(".ad-space");
-    allAdSpaces.forEach(space => {
-      if(space.id !== "topPayingAdSpace") makeOpenTargetLink(space);
-    });
-  }
+        const allBotLinks = document.querySelectorAll('a[href*="t.me/MakefriendsglobalBot/Letschat"]');
+        for(let link of allBotLinks) {
+            link.addEventListener('click', () => {
+                if (redirectEnabled) cancelRedirect();
+            });
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
 
-  function init() {
-    renderTasks();
-    updateUI();
-    bindAllLinksToTarget();
-    
-    const surfBtn = document.getElementById("surfModeBtn");
-    if(surfBtn) surfBtn.addEventListener("click", () => startSurfMode());
-  }
-  
-  init();
+        startRedirectCountdown();
+        redirectTimer = setTimeout(() => {
+            if (redirectEnabled) performRedirect();
+        }, 5100);
+    })();
 </script>
 </body>
 </html>
