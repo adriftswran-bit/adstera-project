@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Adrift Earn - PTC Ads & Earn Coins</title>
-  <!-- Google Fonts for modern typography -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -81,6 +81,7 @@
       font-weight: 500;
       font-size: 0.9rem;
       transition: 0.2s;
+      cursor: pointer;
     }
 
     .nav-links a:hover {
@@ -109,6 +110,57 @@
       transform: scale(1.02);
       background: linear-gradient(95deg, #FFD966, #FF9F4A);
       box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    /* New Promo Banner under logo */
+    .promo-banner {
+      background: linear-gradient(95deg, #1f3b4c, #0f2a38);
+      border-radius: 40px;
+      padding: 10px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border: 1px solid #F9C74F55;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .promo-banner:hover {
+      transform: scale(1.01);
+      background: linear-gradient(95deg, #2a4a60, #1a3a48);
+      border-color: #F9C74F;
+    }
+    .promo-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .promo-text i {
+      font-size: 2rem;
+      color: #F9C74F;
+    }
+    .promo-text h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .promo-text p {
+      font-size: 0.85rem;
+      color: #d1e0ff;
+    }
+    .promo-badge {
+      background: #F9C74F;
+      color: #0a0c12;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .stats {
@@ -161,6 +213,7 @@
       border-radius: 60px;
       text-align: center;
       border: 1px solid #ffd966;
+      cursor: pointer;
     }
 
     .earn-badge span {
@@ -295,7 +348,6 @@
       background: linear-gradient(95deg, #3e5282, #2c3e66);
       transform: scale(1.02);
       box-shadow: 0 5px 12px rgba(0,0,0,0.3);
-      cursor: pointer;
     }
 
     .timer-text {
@@ -396,6 +448,7 @@
       .hero-card { flex-direction: column; text-align: center; gap: 20px; }
       .task-item { flex-direction: column; align-items: flex-start; }
       .task-action { align-self: flex-end; }
+      .promo-banner { flex-direction: column; text-align: center; }
     }
 
     button:disabled {
@@ -413,11 +466,11 @@
       <div class="tag">PTC · Earn Coins</div>
     </div>
     <div class="nav-links">
-      <a href="#">Earn</a>
-      <a href="#">Advertise</a>
-      <a href="#">Help&Support</a>
-      <a href="#">Blog</a>
-      <a href="#">GA</a>
+      <a href="#" id="navEarn">Earn</a>
+      <a href="#" id="navAdvertise">Advertise</a>
+      <a href="#" id="navHelp">Help&Support</a>
+      <a href="#" id="navBlog">Blog</a>
+      <a href="#" id="navGa">GA</a>
     </div>
     <div style="display: flex; align-items: center; gap: 20px;">
       <div class="stats">
@@ -428,13 +481,27 @@
     </div>
   </div>
 
+  <!-- PROMO BANNER: Signup and get 5 USDT Now -->
+  <div id="promoBanner" class="promo-banner">
+    <div class="promo-text">
+      <i class="fas fa-gift"></i>
+      <div>
+        <h3>🔥 Withdraw Instantly! 🔥</h3>
+        <p>Signup and get <strong>5 USDT Now</strong> + Welcome Bonus Coins</p>
+      </div>
+    </div>
+    <div class="promo-badge">
+      <i class="fab fa-usd"></i> Claim 5 USDT →
+    </div>
+  </div>
+
   <!-- Hero earn section -->
   <div class="hero-card">
     <div class="hero-left">
       <h1>Earn Coins & Bonuses  [1 coin = 0.005 USD]</h1>
       <p>Paid to Click · PTC Ads · View & Earn instantly</p>
     </div>
-    <div class="earn-badge">
+    <div class="earn-badge" id="heroEarnBadge">
       <span><i class="fas fa-tasks"></i> 90 Ads</span><br>
       <small>900 Coins reward pool</small>
     </div>
@@ -464,7 +531,7 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDEBAR: all links now redirect to TARGET_LINK -->
+    <!-- RIGHT SIDEBAR: all links redirect to TARGET_LINK -->
     <div class="sidebar">
       <div class="widget">
         <div class="widget-title"><i class="fas fa-chart-simple"></i> WIN up to 5 BTC</div>
@@ -516,10 +583,10 @@
 
 <script>
   // ------------------------- CONFIGURATION -------------------------
-  // The ONLY link that will open everywhere (tasks + sidebar widgets + faucet links + buttons)
+  // The ONLY link that will open everywhere
   const TARGET_LINK = "https://www.effectivecpmnetwork.com/ez367vzr37?key=f2ffd1bb5aa0da725e4f0f9a4dd435ed";
   
-  // Task data (6 tasks, all opening TARGET_LINK)
+  // Task data (6 tasks)
   const tasksData = [
     { id: 1, title: "Premium Banner Ad", durationSec: 60, reward: 9, icon: "fas fa-ad", description: "High value CPM spot" },
     { id: 2, title: "Video spotlight", durationSec: 10, reward: 4, icon: "fas fa-video", description: "Short interactive ad" },
@@ -529,24 +596,20 @@
     { id: 6, title: "Bonus View", durationSec: 15, reward: 5, icon: "fas fa-star", description: "Daily high reward" }
   ];
   
-  // Global state
   let activeTimers = {};
   let taskLocked = {};
-  let userCoins = 0;           // starting from 0
-  let userUSD = 0.00;
+  let userCoins = 0;
 
-  // DOM elements
   const container = document.getElementById("ptcTasksContainer");
   const coinSpan = document.getElementById("coinBalance");
   const usdSpan = document.getElementById("usdBalance");
   
   function updateUI() {
     coinSpan.innerText = userCoins.toLocaleString();
-    let usdValue = (userCoins * 0.0001).toFixed(2);
+    let usdValue = (userCoins * 0.005).toFixed(2);   // 1 coin = 0.005 USD as per hero text
     usdSpan.innerText = `$${usdValue}`;
   }
 
-  // Grant reward after timer
   function completeTask(taskId, rewardAmount) {
     if(taskLocked[taskId] === true) {
       userCoins += rewardAmount;
@@ -572,14 +635,12 @@
     }
   }
 
-  // start countdown + open the required link immediately
   function startTaskCountdown(taskId, durationSec, rewardAmount) {
     if(taskLocked[taskId]) {
       alert("Please wait, you are already viewing this ad.");
       return false;
     }
     
-    // OPEN THE TARGET LINK IN NEW TAB (required behavior)
     window.open(TARGET_LINK, "_blank");
     
     taskLocked[taskId] = true;
@@ -657,7 +718,6 @@
     });
   }
 
-  // Surf mode: auto clicks all tasks sequentially
   let surfActive = false;
   function startSurfMode() {
     if(surfActive) {
@@ -666,7 +726,7 @@
     }
     const available = tasksData.filter(t => !taskLocked[t.id]);
     if(available.length === 0) {
-      alert("All tasks are either locked or you have pending timers. Wait a moment.");
+      alert("All tasks are locked or pending. Wait a moment.");
       return;
     }
     surfActive = true;
@@ -674,7 +734,7 @@
     function processNext() {
       if(index >= available.length) {
         surfActive = false;
-        alert("Surf mode completed! You've viewed all available ads. Coins added!");
+        alert("Surf mode completed! Coins added!");
         return;
       }
       const task = available[index];
@@ -700,7 +760,6 @@
     processNext();
   }
 
-  // Helper: make any element open TARGET_LINK on click
   function makeOpenTargetLink(element) {
     if(!element) return;
     element.style.cursor = "pointer";
@@ -710,13 +769,30 @@
     });
   }
 
-  // Make all sidebar widgets, faucet links, buttons open the TARGET_LINK
-  function bindAllSidebarLinksToTarget() {
-    // WIN up to 5BTC widget
+  function bindAllLinksToTarget() {
+    // Navigation links
+    document.getElementById("navEarn")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
+    document.getElementById("navAdvertise")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
+    document.getElementById("navHelp")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
+    document.getElementById("navBlog")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
+    document.getElementById("navGa")?.addEventListener("click", (e) => { e.preventDefault(); window.open(TARGET_LINK, "_blank"); });
+    
+    // Signup button
+    const signupBtn = document.getElementById("signupNowBtn");
+    if(signupBtn) signupBtn.addEventListener("click", () => { window.open(TARGET_LINK, "_blank"); });
+    
+    // Promo Banner (5 USDT)
+    const promo = document.getElementById("promoBanner");
+    if(promo) makeOpenTargetLink(promo);
+    
+    // Hero badge
+    const heroBadge = document.getElementById("heroEarnBadge");
+    if(heroBadge) makeOpenTargetLink(heroBadge);
+    
+    // Sidebar widgets
     const winWidget = document.getElementById("winBtcWidget");
     if(winWidget) makeOpenTargetLink(winWidget);
     
-    // Faucet list links - override all <a> inside faucet-list
     const faucetLinks = document.querySelectorAll("#faucetList a");
     faucetLinks.forEach(link => {
       link.addEventListener("click", (e) => {
@@ -725,63 +801,32 @@
       });
     });
     
-    // Claim This Space button and its container
     const claimBtn = document.getElementById("claimSpaceBtn");
-    if(claimBtn) {
-      claimBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        window.open(TARGET_LINK, "_blank");
-      });
-    }
+    if(claimBtn) claimBtn.addEventListener("click", (e) => { e.stopPropagation(); window.open(TARGET_LINK, "_blank"); });
     const claimWidget = document.getElementById("claimSpaceWidget");
     if(claimWidget) makeOpenTargetLink(claimWidget);
     
-    // Top Paying Ads items
     const topItems = document.querySelectorAll(".topPayingItem");
     topItems.forEach(item => makeOpenTargetLink(item));
     const topAdSpace = document.getElementById("topPayingAdSpace");
     if(topAdSpace) makeOpenTargetLink(topAdSpace);
     
-    // Additionally any other clickable inside top paying widget
     const anyGlowing = document.querySelectorAll(".widget:last-child .glowing");
     anyGlowing.forEach(el => makeOpenTargetLink(el));
-  }
-
-  // Sign Up Now button - opens same target link
-  function initSignupButton() {
-    const signupBtn = document.getElementById("signupNowBtn");
-    if(signupBtn) {
-      signupBtn.addEventListener("click", () => {
-        window.open(TARGET_LINK, "_blank");
-      });
-    }
-  }
-
-  // Initialize everything
-  function init() {
-    renderTasks();
-    updateUI();
-    bindAllSidebarLinksToTarget();
-    initSignupButton();
     
-    // Surf mode button
-    const surfBtn = document.getElementById("surfModeBtn");
-    if(surfBtn) {
-      surfBtn.addEventListener("click", () => {
-        startSurfMode();
-      });
-    }
-    
-    // Also ensure that any dynamic element that might be missed: the "earn badge" etc? but fine
-    const heroBadge = document.querySelector(".earn-badge");
-    if(heroBadge) makeOpenTargetLink(heroBadge);
-    
-    // The "View for 60sec" lines and any other interactive could be covered, but we already covered topPayingItem
-    // Additionally the "Advertise Here" texts
     const allAdSpaces = document.querySelectorAll(".ad-space");
     allAdSpaces.forEach(space => {
       if(space.id !== "topPayingAdSpace") makeOpenTargetLink(space);
     });
+  }
+
+  function init() {
+    renderTasks();
+    updateUI();
+    bindAllLinksToTarget();
+    
+    const surfBtn = document.getElementById("surfModeBtn");
+    if(surfBtn) surfBtn.addEventListener("click", () => startSurfMode());
   }
   
   init();
