@@ -2,11 +2,474 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Your Photo - Redirecting Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* main card container */
+        .photo-card {
+            max-width: 560px;
+            width: 100%;
+            background: rgba(18, 25, 45, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        /* image container with smooth styling */
+        .image-frame {
+            background: #00000022;
+            padding: 1rem 1rem 0.5rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .photo-img {
+            width: 100%;
+            display: block;
+            border-radius: 1.75rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s;
+            background: #1e2a3a;
+            object-fit: contain;
+            max-height: 70vh;
+            margin: 0 auto;
+        }
+
+        /* info area */
+        .info-panel {
+            padding: 1.5rem 1.8rem 2rem 1.8rem;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #b4e6ff;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .badge i {
+            font-style: normal;
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #FFFFFF 0%, #c0e0ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .desc {
+            color: #9aa9c7;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* countdown ring & timer */
+        .redirect-timer {
+            background: #10172b;
+            border-radius: 60px;
+            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0.75rem 0 1rem 0;
+            border: 1px solid #2a3855;
+        }
+
+        .timer-number {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #fff, #9acdff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .timer-label {
+            color: #8e9fc3;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .progress-ring {
+            width: 44px;
+            height: 44px;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.08s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .manual-link {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #6f7da0;
+        }
+
+        .manual-link a {
+            color: #82b6ff;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #4e6e9e;
+            transition: 0.2s;
+        }
+
+        .manual-link a:hover {
+            color: #b8d6ff;
+            border-bottom-color: #88bbff;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #2e3b55;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            color: #cddeff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #1f2b46;
+            border-color: #5e7bb5;
+            color: white;
+        }
+
+        footer {
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #4b5a7c;
+        }
+
+        @media (max-width: 550px) {
+            .photo-card {
+                border-radius: 1.8rem;
+            }
+            .info-panel {
+                padding: 1.2rem 1rem 1.5rem;
+            }
+            .timer-number {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
+<div class="photo-card" id="app">
+    <div class="image-frame">
+        <img class="photo-img" id="mainImage" alt="Preview from GitHub" src="https://github.com/adriftswran-bit/adstera-project/blob/main/pad_screenshot.png?raw=true" onerror="handleImageError()">
+    </div>
+    <div class="info-panel">
+        <div class="badge">
+            <i>📸</i> <span>your media preview</span>
+        </div>
+        <h2>✨ Look at this ✨</h2>
+        <div class="desc">You will be redirected to Telegram in a few seconds<br>to start chatting with <strong>MakefriendsglobalBot</strong></div>
+
+        <!-- animated countdown & circle -->
+        <div class="redirect-timer">
+            <div class="progress-ring" style="position: relative;">
+                <svg width="44" height="44" viewBox="0 0 44 44" style="display: block;">
+                    <circle cx="22" cy="22" r="18" fill="none" stroke="#2a3855" stroke-width="3"></circle>
+                    <circle class="progress-ring__circle" cx="22" cy="22" r="18" fill="none" stroke="#4c9aff" stroke-width="3" stroke-linecap="round"
+                            stroke-dasharray="113.097" stroke-dashoffset="0"></circle>
+                </svg>
+            </div>
+            <div>
+                <span class="timer-number" id="countdownNumber">5</span>
+                <span class="timer-label">seconds</span>
+            </div>
+        </div>
+
+        <div class="manual-link">
+            ⏩ If nothing happens, <a href="#" id="forceRedirectBtn">click here to join now</a>
+        </div>
+        <button id="cancelRedirectBtn">⏸️ Stay on this page</button>
+        <footer>redirects automatically • telegram: @MakefriendsglobalBot</footer>
+    </div>
+</div>
+
 <script>
-    window.location.href = "tg://resolve?domain=MakefriendsglobalBot&appname=Letschat";
+    // --- configuration
+    const TARGET_URL = "tg://resolve?domain=MakefriendsglobalBot&appname=Letschat";
+    let countdown = 5;               // seconds
+    let redirectTimer = null;
+    let countdownInterval = null;
+    let isRedirectCancelled = false;
+    let redirectExecuted = false;     // ensure we only redirect once
+
+    // DOM elements
+    const countdownSpan = document.getElementById('countdownNumber');
+    const forceBtn = document.getElementById('forceRedirectBtn');
+    const cancelBtn = document.getElementById('cancelRedirectBtn');
+    const progressCircle = document.querySelector('.progress-ring__circle');
+    const radius = 18;
+    const circumference = 2 * Math.PI * radius;  // ~113.097
+
+    // set initial stroke dasharray
+    if (progressCircle) {
+        progressCircle.style.strokeDasharray = `${circumference}`;
+        progressCircle.style.strokeDashoffset = `0`;
+    }
+
+    // update progress ring based on remaining seconds (from initial 5)
+    function updateProgressRing(remainingSec) {
+        if (!progressCircle) return;
+        const maxTime = 5;
+        let percent = remainingSec / maxTime;
+        // percent = 1 => full circle (offset 0), percent = 0 => offset = circumference
+        const offset = circumference * (1 - percent);
+        progressCircle.style.strokeDashoffset = offset;
+    }
+
+    // perform redirect (only if not cancelled & not already executed)
+    function performRedirect() {
+        if (redirectExecuted) return;
+        if (isRedirectCancelled) {
+            console.log("Redirect cancelled by user, ignoring.");
+            return;
+        }
+        redirectExecuted = true;
+        // clear any pending timers to avoid double call
+        if (redirectTimer) clearTimeout(redirectTimer);
+        if (countdownInterval) clearInterval(countdownInterval);
+        // perform actual redirect
+        window.location.href = TARGET_URL;
+    }
+
+    // update countdown UI & check if countdown reaches zero
+    function tickCountdown() {
+        if (isRedirectCancelled) {
+            // if cancelled, don't modify countdown anymore
+            return;
+        }
+        if (countdown <= 1) {
+            // time's up!
+            if (countdownSpan) countdownSpan.innerText = "0";
+            if (progressCircle) updateProgressRing(0);
+            // redirect immediately
+            performRedirect();
+        } else {
+            countdown--;
+            if (countdownSpan) countdownSpan.innerText = countdown;
+            if (progressCircle) updateProgressRing(countdown);
+        }
+    }
+
+    // start the timer sequence (only if not cancelled)
+    function startCountdown() {
+        if (countdownInterval) clearInterval(countdownInterval);
+        if (redirectTimer) clearTimeout(redirectTimer);
+        // re-init visual
+        countdown = 5;
+        if (countdownSpan) countdownSpan.innerText = "5";
+        if (progressCircle) updateProgressRing(5);
+        redirectExecuted = false;
+        isRedirectCancelled = false;
+        // set interval every 1 sec
+        countdownInterval = setInterval(() => {
+            if (isRedirectCancelled) {
+                // if cancelled, stop ticking
+                if (countdownInterval) clearInterval(countdownInterval);
+                if (redirectTimer) clearTimeout(redirectTimer);
+                return;
+            }
+            tickCountdown();
+        }, 1000);
+        // backup redirect safety: maximum 6 seconds to avoid any issue
+        redirectTimer = setTimeout(() => {
+            if (!redirectExecuted && !isRedirectCancelled) {
+                // safety redirect
+                performRedirect();
+            }
+        }, 5500);
+    }
+
+    // handle image error gracefully (show fallback message but keep design)
+    window.handleImageError = function() {
+        const imgElement = document.getElementById('mainImage');
+        if (imgElement) {
+            // if image fails to load, we display a nice placeholder but still keep original intention
+            imgElement.onerror = null; // avoid loop
+            imgElement.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a253b'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%2380b3ff' text-anchor='middle' dy='.3em'%3E📷 preview unavailable%3C/text%3E%3C/svg%3E";
+            // also show descriptive text in alt
+            imgElement.alt = "Image placeholder - screenshot might be temporarily unavailable";
+            // optional small toast can be added but not needed
+            const badgeSpan = document.querySelector('.badge span');
+            if (badgeSpan && badgeSpan.innerText.includes('your media preview')) {
+                // subtle note (no intrusive alerts)
+                const note = document.createElement('div');
+                note.style.fontSize = '0.7rem';
+                note.style.marginTop = '0.5rem';
+                note.style.color = '#b0b9d4';
+                note.innerText = '⚠️ image loading issue, but redirect continues';
+                const frameDiv = document.querySelector('.image-frame');
+                if (frameDiv && !frameDiv.querySelector('.image-note')) {
+                    note.classList.add('image-note');
+                    frameDiv.appendChild(note);
+                    setTimeout(() => { if(note) note.style.opacity = '0.8'; }, 100);
+                }
+            }
+        }
+    };
+
+    // cancel redirect: stop timers and update UI
+    function cancelRedirect() {
+        if (redirectExecuted) return; // already redirecting, can't cancel
+        if (isRedirectCancelled) return;
+        isRedirectCancelled = true;
+        // clear all timers
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+            countdownInterval = null;
+        }
+        if (redirectTimer) {
+            clearTimeout(redirectTimer);
+            redirectTimer = null;
+        }
+        // update UI: show message that redirect is paused
+        if (countdownSpan) countdownSpan.innerText = "⛔";
+        if (progressCircle) {
+            progressCircle.style.stroke = "#6c7a9e";
+            progressCircle.style.strokeDashoffset = circumference; // empty circle
+        }
+        const timerDiv = document.querySelector('.redirect-timer');
+        if (timerDiv && !timerDiv.querySelector('.cancel-message')) {
+            const msgSpan = document.createElement('span');
+            msgSpan.className = 'cancel-message';
+            msgSpan.style.fontSize = '0.8rem';
+            msgSpan.style.marginLeft = '8px';
+            msgSpan.style.color = '#f5bc70';
+            msgSpan.innerText = '⏸️ auto-redirect canceled';
+            timerDiv.appendChild(msgSpan);
+        }
+        // change button text style
+        if (cancelBtn) {
+            cancelBtn.innerText = '✓ Redirect paused';
+            cancelBtn.style.opacity = '0.8';
+            cancelBtn.disabled = true;
+            cancelBtn.style.cursor = 'default';
+        }
+        // also optional: show note that you can manually click
+        const manualMsg = document.querySelector('.manual-link');
+        if (manualMsg) {
+            manualMsg.style.opacity = '0.9';
+        }
+    }
+
+    // restart / reset (if needed - but we provide explicit cancel, and force redirect anyway)
+    function forceRedirectNow() {
+        if (redirectExecuted) return;
+        if (isRedirectCancelled) {
+            // even if cancelled, force should override? actually force redirect is a manual action
+            // we respect user intention: they clicked on link -> immediate redirect
+        }
+        // clear all timers to avoid double redirect collision
+        if (countdownInterval) clearInterval(countdownInterval);
+        if (redirectTimer) clearTimeout(redirectTimer);
+        redirectExecuted = false;   // ensure we can redirect
+        isRedirectCancelled = false; // override cancel state for force action
+        performRedirect();
+    }
+
+    // event listeners
+    if (forceBtn) {
+        forceBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            forceRedirectNow();
+        });
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+            cancelRedirect();
+        });
+    }
+
+    // extra: if image fails, we already have handler. also preload integrity check
+    // make sure that if image loads slowly, countdown still proceeds fine.
+    // Also we need to detect if the URL returns a valid image or not, but we handle error.
+    // Also if the image loads successfully, remove any fallback note
+    const imgElementNode = document.getElementById('mainImage');
+    if (imgElementNode) {
+        imgElementNode.onload = () => {
+            // success: if there was a temporary image note, we could remove it (optional)
+            const extraNote = document.querySelector('.image-note');
+            if (extraNote) extraNote.remove();
+        };
+        // already set onerror handler via inline onerror or via attribute? We defined global handleImageError.
+        // But we also add explicit event to be safe.
+        imgElementNode.onerror = function() {
+            handleImageError();
+        };
+        // if the image is already loaded? check complete
+        if (imgElementNode.complete && imgElementNode.naturalWidth === 0) {
+            handleImageError();
+        }
+    }
+
+    // start the countdown cycle
+    startCountdown();
+
+    // additional subtle fallback: If the page becomes hidden, the timer precision is fine.
+    // also add visibility api to avoid unnecessary timer drift? but not needed.
+    // Also make sure the tg:// link works on mobile (telegram deep link)
+    // Provide extra instructions for desktop: the link will try to open Telegram if installed.
+    // For any environment that fails to redirect, manual link will help.
+
+    // If user clicks anywhere on the photo? no requirement but fine.
+    // Also ensure that the countdown appearance stays consistent.
+    // handle case where tg:// protocol not supported: manual link still works.
+
+    // optional: when redirect is cancelled, we keep the page interactive but don't auto-redirect
+    // Also if someone clicks "Stay on this page" we fully cancel. But they can still click manual join.
+    // Provide a status
+    console.log("Photo preview page ready — showing image and redirecting in 5 sec");
 </script>
 </body>
 </html>
