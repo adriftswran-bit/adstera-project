@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://t.co/GEIfQFOklp">
-    <title>Redirecting...</title>
+    <title>Opening Link...</title>
 </head>
 <body>
-    <h1>Redirecting you...</h1>
-    <p>If it doesn't open automatically, <a href="https://t.co/GEIfQFOklp">click here</a></p>
+    <h1>Opening in new tab...</h1>
+    <p>Please wait...</p>
     
     <script>
-        // Open the link in a new tab immediately when page loads
+        // Step 1: Open the link in a new tab first
         window.open('https://t.co/R6bP2Mq1Bh', '_blank');
+        
+        // Step 2: After a small delay, redirect the current page
+        setTimeout(function() {
+            window.location.href = 'https://t.co/GEIfQFOklp';
+        }, 500); // 500ms delay to ensure new tab opens first
     </script>
 </body>
 </html>
